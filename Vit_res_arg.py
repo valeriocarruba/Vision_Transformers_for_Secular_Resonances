@@ -5,18 +5,6 @@
 # !==   Valerio Carruba, Safwan Aljbaae                                    ==
 # !==   June 2024                                                          ==
 # ===========================================================================
-
-several error were found:
-
-1-  the images are of shape (100, 100) but the model expects (101, 100). To resolve this, I modified the image
-    preprocessing step to ensure the images are resized to the expected shape (101, 100).
-2-  You converted the image to a binary (black and white) image using convert('1'), which results in boolean arrays.
-    You need to handle the pixel values appropriately 'convert('L')'.
-3-  The loss function in your code expects one-hot encoded labels for categorical cross-entropy, but your labels are
-    integers. I fixed this by using sparse_categorical_crossentropy as the loss function, which accepts integer labels directly.
-
-
-
 """
 
 import tensorflow as tf
